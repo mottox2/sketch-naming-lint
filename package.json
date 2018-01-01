@@ -8,5 +8,9 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.1.2",
+    "sketch2json": "^0.1.1"
+  }
 }
