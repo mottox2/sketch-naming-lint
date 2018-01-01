@@ -2,24 +2,29 @@ const fs = require('fs')
 const sketch2json = require('sketch2json')
 const colors = require('colors')
 
-fs.readFile(__dirname + '/sample.sketch', (error, data) => {
+fs.readFile(__dirname + '/../sample.sketch', (error, data) => {
+  console.log(error)
   sketch2json(data).then(result => {
     const pages = result.pages
     const pageKey = Object.keys(pages)[0]
     console.log('page:', pages[pageKey].name)
     pages[pageKey].layers.map(layer => {
-      // console.log(layer)
-      logLayers(layer, 1)
+      lintLayers(layer, 1)
     })
-    // console.log(result.pages)
   })
 })
 
 const er = colors.red
 
-function logLayers(layer, depth) {
+function lintLayers(layer, depth) {
   console.log(`${new Array(depth).join('  ')}${layer._class} ${layer.name}`)
-  debugger
+  process(layer, depth)
+  if (layer.layers) {
+    layer.layers.map(l => lintLayers(l, depth + 1))
+  }
+}
+
+const process = (layer, depth) => {
   if (layer.name.toLowerCase().match(layer._class)) {
     console.log(
       `${new Array(depth).join('  ')}Error: ${layer.name} contain ${
@@ -31,8 +36,5 @@ function logLayers(layer, depth) {
     console.log(
       `${new Array(depth).join('  ')}Error: ${layer.name} is too short`.red
     )
-  }
-  if (layer.layers) {
-    layer.layers.map(l => logLayers(l, depth + 1))
   }
 }
