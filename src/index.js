@@ -2,19 +2,19 @@ const fs = require('fs')
 const sketch2json = require('sketch2json')
 const colors = require('colors')
 
-fs.readFile(__dirname + '/../sample.sketch', (error, data) => {
-  console.log(error)
-  sketch2json(data).then(result => {
-    const pages = result.pages
-    const pageKey = Object.keys(pages)[0]
-    console.log('page:', pages[pageKey].name)
-    pages[pageKey].layers.map(layer => {
-      lintLayers(layer, 1)
+exports.excute = fileName => {
+  fs.readFile(__dirname + `/../${fileName}`, (error, data) => {
+    console.log(error)
+    sketch2json(data).then(result => {
+      const pages = result.pages
+      const pageKey = Object.keys(pages)[0]
+      console.log('page:', pages[pageKey].name)
+      pages[pageKey].layers.map(layer => {
+        lintLayers(layer, 1)
+      })
     })
   })
-})
-
-const er = colors.red
+}
 
 function lintLayers(layer, depth) {
   console.log(`${new Array(depth).join('  ')}${layer._class} ${layer.name}`)
