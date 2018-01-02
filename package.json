@@ -1,6 +1,6 @@
 {
   "name": "sketch-naming-lint",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Sketch layer linting tool",
   "scripts": {
     "build": "babel src --out-dir lib",
