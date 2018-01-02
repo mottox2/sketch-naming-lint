@@ -1,6 +1,6 @@
 {
   "name": "sketch-naming-lint",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Sketch layer linting tool",
   "scripts": {
     "build": "babel src --out-dir lib",
@@ -11,6 +11,11 @@
     "lint",
     "linting"
   ],
+  "homepage": "https://github.com/mottox2/sketch-naming-lint",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mottox2/sketch-naming-lint.git"
+  },
   "author": "mottox2",
   "license": "MIT",
   "dependencies": {
@@ -22,6 +27,9 @@
     "babel": "^6.23.0",
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.1"
+  },
+  "bugs": {
+    "url": "https://github.com/mottox2/sketch-naming-lint/issues"
   },
   "bin": "bin/cli.js"
 }
