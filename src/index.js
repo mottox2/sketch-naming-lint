@@ -16,15 +16,15 @@ exports.excute = fileName => {
   })
 }
 
-function lintLayers(layer, depth) {
+const lintLayers = (layer, depth) => {
   console.log(`${new Array(depth).join('  ')}${layer._class} ${layer.name}`)
-  process(layer, depth)
+  lintLayer(layer, depth)
   if (layer.layers) {
     layer.layers.map(l => lintLayers(l, depth + 1))
   }
 }
 
-const process = (layer, depth) => {
+const lintLayer = (layer, depth) => {
   if (layer.name.toLowerCase().match(layer._class)) {
     console.log(
       `${new Array(depth).join('  ')}Error: ${layer.name} contain ${

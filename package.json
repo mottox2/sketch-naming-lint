@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "babel src --out-dir lib",
+    "watch": "babel src --out-dir lib --watch"
   },
   "keywords": [],
   "author": "",
@@ -13,5 +14,10 @@
     "colors": "^1.1.2",
     "minimist": "^1.2.0",
     "sketch2json": "^0.1.1"
+  },
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1"
   }
 }

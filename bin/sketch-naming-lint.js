@@ -2,7 +2,7 @@
 
 const minimist = require('minimist')
 const fs = require('fs')
-const { excute } = require('../src/index')
+const { excute } = require('../lib/index')
 
 const argv = minimist(process.argv.slice(2))
 const commands = argv._
@@ -17,6 +17,7 @@ const fileName = commands[0]
 // Check file
 fs.readFile(__dirname + '/../' + fileName, (error, data) => {
   if (error) {
+    console.log(error)
     process.exit(1)
   }
 })
