@@ -1,9 +1,10 @@
 const fs = require('fs')
 const sketch2json = require('sketch2json')
 const colors = require('colors')
+const path = require('path')
 
 exports.excute = fileName => {
-  fs.readFile(__dirname + `/../${fileName}`, (error, data) => {
+  fs.readFile(path.resolve(fileName), (error, data) => {
     console.log(error)
     sketch2json(data).then(result => {
       const pages = result.pages
