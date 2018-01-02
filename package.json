@@ -6,9 +6,9 @@
     "build": "babel src --out-dir lib",
     "watch": "babel src --out-dir lib --watch"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["sketch", "lint", "linting"],
+  "author": "mottox2",
+  "license": "MIT",
   "dependencies": {
     "colors": "^1.1.2",
     "minimist": "^1.2.0",
