@@ -1,3 +1,5 @@
+**I recommend to use [sketchlint](https://github.com/kvendrik/sketchlint)**
+
 # sketch-naming-lint
 Sketch layer linting tool
 
